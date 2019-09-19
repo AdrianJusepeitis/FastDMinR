@@ -1,5 +1,5 @@
 # FastDMinR
-multiTreeR is an R interface for fast-dm.
+FastDMinR is an R interface for fast-dm.
 
 Installation
 ------------
