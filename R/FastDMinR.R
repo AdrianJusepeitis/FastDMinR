@@ -23,6 +23,7 @@
 #' @keywords diffusion modeling
 #' @import tidyr
 #' @import sys
+#' @import stringr
 #' @export
 
 fast_dm <- function(data,
