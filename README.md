@@ -1,4 +1,13 @@
 # FastDMinR
-A R-package for diffusion model estimation using fast-dm.
+multiTreeR is an R interface for fast-dm.
 
-test
+Installation
+------------
+
+To install FastDMinR, run:
+
+``` r
+install.packages("devtools")
+library(devtools)
+install_github("AdrianJusepeitis/FastDMinR")
+```
