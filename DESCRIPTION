@@ -5,7 +5,7 @@ Version: 0.1.0
 Author: Adrian Jusepeitis
 Maintainer: Adrian Jusepeitis <adrian.jusepeitis@uni-jena.de>
 Description: Estimate a diffusion model using fast-dm.
-Imports: tidyverse, sys
+Imports: tidyr, sys
 License: GNU GPLv3
 Encoding: UTF-8
 LazyData: true

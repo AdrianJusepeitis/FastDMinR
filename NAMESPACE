@@ -2,4 +2,4 @@
 
 export(fast_dm)
 import(sys)
-import(tidyverse)
+import(tidyr)
