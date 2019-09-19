@@ -21,7 +21,7 @@
 #' @seealso For further information regarding fast-dm see \url{https://www.psychologie.uni-heidelberg.de/ae/meth/fast-dm/}.
 #' @keywords fast-dm
 #' @keywords diffusion modeling
-#' @import tidyverse
+#' @import tidyr
 #' @import sys
 #' @export
 
