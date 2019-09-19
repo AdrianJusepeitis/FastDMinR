@@ -2,9 +2,6 @@
 #### Functions ####
 # -------------- #
 
-require(tidyverse)
-require(sys)
-
 
 #' Run fast-dm
 #'
@@ -24,6 +21,8 @@ require(sys)
 #' @seealso For further information regarding fast-dm see \url{https://www.psychologie.uni-heidelberg.de/ae/meth/fast-dm/}.
 #' @keywords fast-dm
 #' @keywords diffusion modeling
+#' @import tidyverse
+#' @import sys
 #' @export
 
 fast_dm <- function(data,
@@ -38,6 +37,9 @@ fast_dm <- function(data,
                     depend_on_condition,
                     invariant,
                     delete = TRUE){
+
+  require(tidyverse)
+  require(sys)
 
   fast_dm_path <- paste0(find.package("FastDMinR"),"/fast-dm")
 
