@@ -41,6 +41,7 @@ fast_dm <- function(data,
 
   require(tidyr)
   require(sys)
+  require(stringr)
 
   fast_dm_path <- paste0(find.package("FastDMinR"),"/fast-dm")
 
