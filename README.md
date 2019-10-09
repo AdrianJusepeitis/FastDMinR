@@ -18,7 +18,7 @@ install_github("AdrianJusepeitis/FastDMinR")
 Simply use the function 
 
 ``` r
-fast-dm()
+fast_dm()
 ```
 
 to specify the input data and the diffusion model. The function returns a list of parameter estimates and cdf values for evaluating model fit. 
