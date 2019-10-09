@@ -70,11 +70,13 @@ and
 dif_data$cdf$aggr_cdf
 ```
 
-It is formated in a way to be easily plotted with ggplot:
+It is formated in long format making it easy producing the necessary plots with ggplot2:
 ```r
 library(ggplot2)
 
-ggplot(dif_data$cdf$aggr_cdf, aes(x = RT, y = CDF)) + geom_line(aes(lty = cdf_Type), lwd = 1)
+ggplot(dif_data$cdf$aggr_cdf, aes(x = RT, y = CDF)) + 
+  geom_line(aes(lty = cdf_Type), lwd = 1) + 
+  facet_grid(. ~ cnd)
 ```
 
 
