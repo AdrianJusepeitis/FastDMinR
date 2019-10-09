@@ -29,18 +29,17 @@ to specify the input data and the diffusion model. The function returns a list o
 You may try using FastDMinR starting with simple simulated data.
 
 ``` r
-data = data.frame(
-  sub = 1,
-  cnd = 1,
-  RESPONSE = sample (c(0,1), 100, p=c(0.1,0.9), replace = TRUE),
-  TIME = round((rnorm(100,400,30) + rexp(100,0.01))/1000, 2))
+data = data.frame(sub = rep(c(1,2), each = 100),
+                  cnd = rep(c(1,2), times = 100),
+                  RESPONSE = sample (c(0,1), 200, p=c(0.1,0.9), replace = TRUE),
+                  TIME = round((rnorm(200,400,30) + rexp(200,0.01))/1000, 2))
 ```
 
 Load the package and save the output of fast-dm() in an object.
 ``` r
 library(FastDMinR)
 
-dif_data <- fast_dm(data, 
+dif_data <- fast_dm(data = data, 
                     Subject = "sub",
                     Conditions = "cnd",
                     TIME = "TIME",
