@@ -39,41 +39,41 @@ Load the package and save the output of fast-dm() in an object.
 ``` r
 library(FastDMinR)
 
-dif_data <- fast_dm(data = data, 
-                    Subject = "sub",
-                    Conditions = "cnd",
-                    TIME = "TIME",
-                    RESPONSE = "RESPONSE",
-                    precision = 5.0,
-                    method = "ks",
-                    fix_to = list(p = 0, d = 0, sv = 0, st0 = 0, szr = 0),
-                    depend_on_condition = list(a = "cnd"),
-                    invariant = c("zr", "v", "t0"))
+results <- fast_dm(data,
+                   Subject = "sub",
+                   Conditions = "cnd",
+                   TIME = "TIME",
+                   RESPONSE = "RESPONSE",
+                   precision = 5.0,
+                   method = "ks",
+                   fix_to = list(p = 0, d = 0, sv = 0, st0 = 0, szr = 0),
+                   depend_on_condition = list(a = "cnd"),
+                   invariant = c("zr", "v", "t0"))
 ```
 
 Parameter estimates are now stored in 
 ```r
-dif_data$indiv_estimates
+results$indiv_estimates
 ```
 and 
 ```r
-dif_data$aggr_estimates
+results$aggr_estimates
 ```
 
 Cdf values are stored in 
 ```r
-dif_data$cdf$indiv_cdf
+results$cdf$indiv_cdf
 ```
 and
 ```r
-dif_data$cdf$aggr_cdf
+results$cdf$aggr_cdf
 ```
 
 The long format makes it easy to produce the necessary plots with ggplot2:
 ```r
 library(ggplot2)
 
-ggplot(dif_data$cdf$aggr_cdf, aes(x = RT, y = CDF)) + 
+ggplot(results$cdf$aggr_cdf, aes(x = RT, y = CDF)) + 
   geom_line(aes(lty = cdf_Type), lwd = 1) + 
   facet_grid(. ~ cnd)
 ```
