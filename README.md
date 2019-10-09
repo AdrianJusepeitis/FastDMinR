@@ -70,7 +70,7 @@ and
 dif_data$cdf$aggr_cdf
 ```
 
-It is formated in long format making it easy to produce the necessary plots with ggplot2:
+The long format makes it easy to produce the necessary plots with ggplot2:
 ```r
 library(ggplot2)
 
