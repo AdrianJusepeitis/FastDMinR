@@ -39,6 +39,7 @@ fast_dm <- function(data,
                     invariant,
                     delete = TRUE){
 
+
   require(tidyr)
   require(sys)
   require(stringr)
@@ -314,7 +315,6 @@ fast_dm <- function(data,
     cdf$RT <- as.numeric(cdf$RT)
     cdf$CDF <- as.numeric(cdf$CDF)
     cdf <- cdf[cdf$RT <= 3 & cdf$RT >= -3,]
-    cdf$Subject <- "all"
     cdf$cond_comb <- paste(Conditions_grid[j,], collapse = "-")
     cdf$cdf_Type <- "predicted"
 
@@ -343,8 +343,7 @@ fast_dm <- function(data,
     cond_comb_indicator <- apply(df[Conditions],1, paste0, collapse = "-") == cond_comb
 
     cdf_data <- data.frame(TIME = ifelse(df$RESPONSE[cond_comb_indicator] == 0,  -1* df$TIME[cond_comb_indicator], df$TIME[cond_comb_indicator]))
-    obs_cdf <- data.frame(Subject = i,
-                          RT = as.numeric(names(cumsum(prop.table(table(cdf_data$TIME))))),
+    obs_cdf <- data.frame(RT = as.numeric(names(cumsum(prop.table(table(cdf_data$TIME))))),
                           CDF = cumsum(prop.table(table(cdf_data$TIME))),
                           cdf_Type = "empirical",
                           cond_comb = cond_comb, row.names = NULL)
