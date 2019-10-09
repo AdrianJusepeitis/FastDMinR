@@ -19,6 +19,34 @@
 #' @param delete Should temporary files be deleted?
 #' @return Returns a list of the input data, individual and aggregated parameter estimates as well as individual and aggregated cdf values per condition.
 #' @seealso For further information regarding fast-dm see \url{https://www.psychologie.uni-heidelberg.de/ae/meth/fast-dm/}.
+#' @examples
+#'# simulate data for 2 subjects
+#'data = data.frame(sub = rep(c(1,2), each = 100),
+#'                  cnd = rep(c(1,2), times = 100),
+#'                  RESPONSE = sample (c(0,1), 200, p=c(0.1,0.9), replace = TRUE),
+#'                  TIME = round((rnorm(200,400,30) + rexp(200,0.01))/1000, 2))
+#'
+#'# load package
+#'library(FastDMinR)
+#'
+# run analysis
+#'results <- fast_dm(data,
+#'                   Subject = "sub",
+#'                   Conditions = "cnd",
+#'                   TIME = "TIME",
+#'                   RESPONSE = "RESPONSE",
+#'                   precision = 5.0,
+#'                   method = "ks",
+#'                   fix_to = list(p = 0, d = 0, sv = 0, st0 = 0, szr = 0),
+#'                   depend_on_condition = list(a = "cnd"),
+#'                   invariant = c("zr", "v", "t0"))
+#'
+#'# plot cdf values with ggplot2
+#'library(ggplot2)
+#'ggplot(results$cdf$aggr_cdf, aes(x = RT, y = CDF)) +
+#'  geom_line(aes(lty = cdf_Type), lwd = 1) +
+#'  facet_grid(. ~ cnd)
+#'
 #' @keywords fast-dm
 #' @keywords diffusion modeling
 #' @import tidyr
