@@ -35,7 +35,7 @@ data = data.frame(sub = rep(c(1,2), each = 100),
                   TIME = round((rnorm(200,400,30) + rexp(200,0.01))/1000, 2))
 ```
 
-Load the package and save the output of fast-dm() in an object.
+Load the package and save the output of fast_dm() in an object.
 ``` r
 library(FastDMinR)
 
