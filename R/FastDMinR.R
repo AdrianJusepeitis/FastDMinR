@@ -67,6 +67,17 @@ fast_dm <- function(data,
                     invariant,
                     delete = TRUE){
 
+  data = IAT_dataframe_S1
+  Subject = "id"
+  Conditions = "compatible"
+  TIME = "rt"
+  RESPONSE = "correct"
+  method = "ml"
+  precision = "5.0"
+  fix_to = list("zr" = .5, "d" = 0, "szr" = 0, "sv" = 0, "st0" = 0, "p" = 0)
+  depend_on_condition = list("a" = "compatible", "v" = "compatible", "t0" = "compatible")
+  invariant = NULL
+  delete = TRUE
 
   require(tidyr)
   require(sys)
@@ -220,7 +231,8 @@ fast_dm <- function(data,
   aggr_estimates <- tmp[tmp$dataset == "all",]
   rownames(aggr_estimates) <- NULL
   tmp <- tmp[tmp$dataset != "all",]
-  tmp$Subject <- as.numeric(as.character(tmp$dataset))
+  # tmp$Subject <- as.numeric(as.character(tmp$dataset))
+  tmp$Subject <- as.character(tmp$dataset)
   tmp$dataset <- NULL
   indiv_estimates <- merge(tmp, Diffusion_estimates)
 
